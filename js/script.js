@@ -47,3 +47,45 @@ const links = document.querySelectorAll('.titles a');
 for(let link of links){
   link.addEventListener('click', titleClickHandler);
 }
+
+/* Kolejna funkcja - generowanie listy tytułów */
+
+  const optArticleSelector = '.post',
+  optTitleSelector = '.post-title',
+  optTitleListSelector = '.titles';
+
+function generateTitleLinks(){
+
+  /* remove contents of titleList */
+
+  function clearMessage() {
+  titleList.innerHTML = '';
+  }
+  const titleList = document.querySelector(optTitleListSelector);
+  clearMessage();
+
+    /* for each article */
+
+    const articles = document.querySelectorAll(optArticleSelector);
+
+    /* get the article id */
+
+    for(let article of articles){
+      const articleId = article.getAttribute('id')
+    
+    /* find the title element */
+    /* get the title from the title element */
+
+    const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+
+    /* create HTML of the link */
+
+    const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+    console.log('Link HTML:', linkHTML);
+
+    /* insert link into titleList */
+    titleList.innerHTML = titleList.innerHTML + linkHTML;
+    }
+}
+
+generateTitleLinks();
