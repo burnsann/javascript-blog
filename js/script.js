@@ -302,4 +302,4 @@ function addClickListenersToAuthors(){
   /* END LOOP: for each link */
   }
 }
-addClickListenersToAuthors()
+addClickListenersToAuthors();
